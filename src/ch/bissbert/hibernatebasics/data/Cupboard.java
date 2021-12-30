@@ -1,5 +1,9 @@
 package ch.bissbert.hibernatebasics.data;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import java.util.List;
 
 /**
@@ -7,8 +11,15 @@ import java.util.List;
  * TODO implement the attributes using hibernate Annotations
  * The id should be automatically incremented
  */
+@Entity
 public class Cupboard {
+    @Id
+    @Column
     private int id;
+
+    //todo create annotation
     private List<Item> items;
+
+    @Column
     private String name;
 }

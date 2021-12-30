@@ -17,58 +17,36 @@ For this tutorial please use "annotations" or "basic" as a reference.
 
 
 ### Configure Hibernate
-As this is the expert group I will help you if you ask, but you first have to try finding it yourself.</br>
-<details>
-    <summary>
-        Tip
-    </summary>
-    There may be some config files in the example projects?
-</details>
+To configure hibernate you have to make changes in the hibernate.cfg.xml, such as setting the user and password.</br>
+Further instructions on how to configure hibernate can be found in the file as comments
 
 
 ### Configure the Classes
-Let's begin with the easier part of annotating the data classes. Further instructions are in the code</br>
+Let's begin with the easier part of annotating the data classes.
+The basic instructions such as marking the entities as tables and setting basic columns have already been done,
+so you can concentrate on the more difficult tasks.
 
-<details>
-    <summary>
-        Tip 1
-    </summary>
-    in the annotations example project they use annotations
-</details>
+Some additional info:
 
-<details>
-<summary>
-Tip 2
-</summary>
-To configure a class as a table you have to set the following attributes:
-
-| Annotation | Description                                                          |
-|:-----------|:---------------------------------------------------------------------|
-| Entity     | Marks the class as a Persistence Entity                              |
-| Table      | Marks the class as a table and can set the name in the DB (optional) |
-| Id         | Marks an attribute as the identifier(pk) in the DB                   |
-
-</details>
+To create the connection between the 2 classes/tables in a list you have to use the @OneToMany Annotation
 
 <details>
 <summary>
-Tip 3
+Hint 1
 </summary>
 To set the name of an attribute us the @Column annotation.
-
-If this is the tip you need please join the intermediary group.
 </details>
 
 <details>
 <summary>
-Tip 4
+Hint 2
 </summary>
-To create an autoincrementing field use the @GeneratedValue annotation. You also need to set the strategy.
+To create an auto incrementing field use the @GeneratedValue annotation. You also need to set the strategy.
 </details>
 
 <details>
 <summary>
-Tip 5
+Hint 3
 </summary>
 For the many to one relation in cupboard you have to create a opposing attribute with a one to many mapping. Here you then also have to set the join column.
 </details>
@@ -76,21 +54,23 @@ For the many to one relation in cupboard you have to create a opposing attribute
 
 ### Dao
 Finally, we come to the dao class. an Interface is already created, but you may do whatever you want with the implementation class.
-As you are the experts and should already know how to create a basic DAO for a class you will create a generic class.
-This means it should work with any correctly annotated class.
+We will just create a dao class for the Cupboard class.
 
-As questions here often are very case centric please ask me directly if not found below.
+To create a new Session we must first have a SessionFactory.
+This can be produces using the Configuration class.
+Here we can either just say .configure().build(); or also pass a path to the configuration (not needed in this example)
+
+If we want to correctly implement a hibernate connection for create, update and delete we have to work with the Transaction class.
+Using the Transaction class we open a transaction with the server,
+meaning we create a connection to the current state of the DB and will only be able to work with this state.
+To then upload this data or get fresh data again we have to commit this transaction which kind of functions like a flush pushing all our changes to the db in an instant.
+When working with transactions this is also the step where you should first get a generated value. (or at least use it)
+
+When working with the getAll we have to create a query to access a list.
 
 <details>
 <summary>
-Tip 1
-</summary>
-You must create a SessionFactory using the builder and then first configure it before building.
-</details>
-
-<details>
-<summary>
-Tip 2
+Hint
 </summary>
 For fetching all data from the server you should create a query using the classname of the type.
 </details>
