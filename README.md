@@ -1,12 +1,12 @@
 # Basic Hibernate Configuration
 
-In this class we will look at how to configure a Hibernate project and create a basic usecase.
+In this class we will look at how to configure a hibernate project and create a basic usecase.
 
 ## Tasks
 
 ### import library
 
-First of all we have to be sure we have the hibernate jar. If you do not have it please just download it under the
+First we have to be sure we have the hibernate jar. If you do not have it please just download it under the
 following link: [releases](https://hibernate.org/orm/releases/)
 
 There download the latest stable release in zip form. This should then contain all libs you need as well as the
@@ -23,7 +23,7 @@ Further instructions on how to configure hibernate can be found in the file as c
 
 ### Configure the Classes
 
-Configuring a data class isn't as complicated as it may seem at first glance. We will go trough it together step by step
+Configuring a data class isn't as complicated as it may seem at first glance. We will go through it together step by step
 so at the end you will understand it fully.
 
 Let's begin with the marking of the classes. These should be marked using the `@Entity` and the `@Table` annotations.
@@ -146,7 +146,7 @@ public Cupboard getAll() {
 
 #### Management Methods (create, update & delete)
 
-With the CUD uperations we get one more element we have to build in. This is the `Transaction` class to create a transaction with the server.
+With the CUD operations we get one more element we have to build in. This is the `Transaction` class to create a transaction with the server.
 
 A transaction with the server creates a temporary copy of its contents which then is used when sending commands to the server.
 After finishing our business with the server we then have to tell it to 1. update the tables accordingly and 2. to show us new data, which is done using the `commit` command.
