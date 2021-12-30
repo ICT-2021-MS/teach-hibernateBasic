@@ -5,7 +5,7 @@ In this class we will look at how to configure a Hibernate project and create a 
 
 
 ### import library
-First of all we have to be sure we have the hibernate jar.
+First we have to be sure we have the hibernate jar.
 If you do not have it please just download it under the following link: [releases](https://hibernate.org/orm/releases/)
 
 There download the latest stable release in zip form.
@@ -20,7 +20,7 @@ For this tutorial please use "annotations" or "basic" as a reference.
 As this is the expert group I will help you if you ask, but you first have to try finding it yourself.</br>
 <details>
     <summary>
-        Tip
+        Hint
     </summary>
     There may be some config files in the example projects?
 </details>
@@ -31,14 +31,14 @@ Let's begin with the easier part of annotating the data classes. Further instruc
 
 <details>
     <summary>
-        Tip 1
+        Hint 1
     </summary>
     in the annotations example project they use annotations
 </details>
 
 <details>
 <summary>
-Tip 2
+Hint 2
 </summary>
 To configure a class as a table you have to set the following attributes:
 
@@ -52,23 +52,23 @@ To configure a class as a table you have to set the following attributes:
 
 <details>
 <summary>
-Tip 3
+Hint 3
 </summary>
 To set the name of an attribute us the @Column annotation.
 
-If this is the tip you need please join the intermediary group.
+If this is the hint you need please join the intermediary group.
 </details>
 
 <details>
 <summary>
-Tip 4
+Hint 4
 </summary>
-To create an autoincrementing field use the @GeneratedValue annotation. You also need to set the strategy.
+To create an auto-incrementing field use the @GeneratedValue annotation. You also need to set the strategy.
 </details>
 
 <details>
 <summary>
-Tip 5
+Hint 5
 </summary>
 For the many to one relation in cupboard you have to create a opposing attribute with a one to many mapping. Here you then also have to set the join column.
 </details>
@@ -83,14 +83,14 @@ As questions here often are very case centric please ask me directly if not foun
 
 <details>
 <summary>
-Tip 1
+Hint 1
 </summary>
 You must create a SessionFactory using the builder and then first configure it before building.
 </details>
 
 <details>
 <summary>
-Tip 2
+Hint 2
 </summary>
 For fetching all data from the server you should create a query using the classname of the type.
 </details>
